@@ -9,10 +9,10 @@ app.use(cors());
 
 app.use(express.json()); // When we want to be able to accept JSON.
 //ignore
-// const complimentsCB = ({data: compliments}) => displayCompliments(compliments)
-// let baseURL = "http://localhost:4000/api/compliment/"
-// const createCompliment = body => axios.post(baseURL, body).then()
 
+
+
+//compliments
 app.get("/api/compliment", (req, res) => {
   const compliments = ["Gee, you're a smart cookie!",
   "Cool shirt!",
@@ -28,6 +28,8 @@ let randomCompliment = compliments[randomIndex];
 
 res.status(200).send(randomCompliment);
 
+
+//user creates compliment
 app.post("/api/compliment/", (req, res) => {
    let newCompliment = req.body;
 
@@ -38,14 +40,14 @@ app.post("/api/compliment/", (req, res) => {
   res.status(200).send(compliments)
   
 })
-  
+  // ? was in the demo
 
   app.post('/api/compliment/', createCompliment);
   app.put('/api/compliment/:id', changeCompliment);
   app.delete('/api/compliment:id', deleteCompliment);
   
 });
-
+//fortunes
 app.get("/api/fortune", (req, res) => {
   const fortunes = ["you are going to ace this test", 
      "you are going to have a birthday soon", 
@@ -59,7 +61,7 @@ app.get("/api/fortune", (req, res) => {
       res.status(200).send(randomFortune);
 
     })
-
+// user creates fortune
 app.post("/api/fortune/", (req, res) => {
    let newFortune = req.body;
 
@@ -68,6 +70,10 @@ app.post("/api/fortune/", (req, res) => {
   newFortune.push(fortunes);
 
   res.status(200).send(fortunes)
+  
+})
+// user updates fortune
+app.put("/api/fortune/", (req, res) => {
   
 })
 

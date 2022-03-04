@@ -66,6 +66,7 @@
         });
       }
         
+      // let the user add their own compliment
           document.getElementById("createComplimentBtn").onclick = function () {
             axios.post("http://localhost:4000/api/compliment/")
             .then(function (response) {
@@ -73,6 +74,16 @@
               alert(data)
             
               console.log(createComplimentButton)
+            })
+            }
+         // let the user add their own fortune
+            document.getElementById("createFortuneBtn").onclick = function () {
+            axios.post("http://localhost:4000/api/fortune/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data)
+            
+              console.log(createFortuneButton)
             })
             }
               </script>
